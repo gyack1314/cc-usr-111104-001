@@ -8,9 +8,21 @@
 
 ```sh
 python -m unittest discover -s tests -v
-python -m compileall -q workbench source_lab tests
+python -m compileall -q workbench source_lab archiver tests
 python -m workbench.cli inspect sources
 ```
+
+采集合成 TCP 流并留存帧级档案（全部使用环回地址与合成字节）：
+
+```sh
+python -m source_lab.tcp sources/streams.json --port 8766   # 另起终端
+python -m archiver.capture 127.0.0.1 8766 --archive out/archive --connections 2
+python -m archiver.check --archive out/archive
+python -m archiver.rebuild --archive out/archive   # 索引过期或损坏时从原始段重建
+python -m archiver.demo                            # 端到端演示（含崩溃恢复与背压）
+```
+
+档案布局、记录格式与一致性规则见 [档案约定](docs/archive-format.md)。
 
 启动本地HTTP资料服务：
 
