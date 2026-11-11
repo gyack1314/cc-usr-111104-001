@@ -1,0 +1,13 @@
+{
+  "sessions": [
+    "session0.bin",
+    "session1.bin"
+  ],
+  "write_sizes": [
+    1,
+    2,
+    7,
+    3,
+    64
+  ]
+}

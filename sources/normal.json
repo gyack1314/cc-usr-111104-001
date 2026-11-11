@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "path": "/about",
+      "responses": [
+        {
+          "status": 200,
+          "headers": [],
+          "text": "合成定位字节来源"
+        }
+      ]
+    }
+  ]
+}
